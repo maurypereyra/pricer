@@ -7,7 +7,6 @@ class Price {
     BigDecimal amount
     String notes
 
-    //static hasOne = [product: Product, store: Store]
     static belongsTo = [product:Product, store: Store]
 
     static constraints = {
@@ -16,7 +15,5 @@ class Price {
     static mapping = {
         version false
         autoTimestamp true
-        //store column: "store_id"
-        //product column: "product_barCore"
     }
 }
