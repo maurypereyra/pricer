@@ -32,8 +32,6 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-        //compile "org.grails.plugins:postgresql-extensions:4.6.1"
-        //runtime "postgresql:postgresql-8.3-607.jdbc4"
     }
 
     plugins {

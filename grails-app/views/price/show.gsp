@@ -58,15 +58,6 @@
 
 				</li>
 				</g:if>
-
-				<g:if test="${flash?.lowerPrice}">
-					<li class="fieldcontain">
-						<span id="product-label" class="property-label"><g:message code="price.product.label" default="Lowerprice" /></span>
-
-						<span class="property-value" aria-labelledby="notes-label">${flash.lowerPrice}</span>
-
-					</li>
-				</g:if>
 			
 				<g:if test="${priceInstance?.store}">
 				<li class="fieldcontain">
