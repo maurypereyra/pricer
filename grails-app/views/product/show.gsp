@@ -40,6 +40,51 @@
 					
 				</li>
 				</g:if>
+
+                <g:if test="${flash.averagePrice}">
+                    <li class="fieldcontain">
+                        <span id="averagePrice-label" class="property-label"><g:message code="product.description.label" default="Average Price" /></span>
+
+                        <span class="property-value" aria-labelledby="averagePrice-label"> ${flash.averagePrice}</span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${flash.lowestPrice}">
+                    <li class="fieldcontain">
+                        <span id="lowestPrice-label" class="property-label"><g:message code="product.description.label" default="Lowest Price" /></span>
+
+                        <span class="property-value" aria-labelledby="lowestPrice-label"> ${flash.lowestPrice}</span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${flash.highestPrice}">
+                    <li class="fieldcontain">
+                        <span id="highestPrice-label" class="property-label"><g:message code="product.description.label" default="Highest Price" /></span>
+
+                        <span class="property-value" aria-labelledby="highestPrice-label"> ${flash.highestPrice}</span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${flash.idealPrice}">
+                    <li class="fieldcontain">
+                        <span id="idealPrice-label" class="property-label"><g:message code="product.description.label" default="Ideal Price" /></span>
+
+                        <span class="property-value" aria-labelledby="idealPrice-label"> ${flash.idealPrice}</span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${flash.pricesCount}">
+                    <li class="fieldcontain">
+                        <span id="pricesCount-label" class="property-label"><g:message code="product.description.label" default="Prices Collected" /></span>
+
+                        <span class="property-value" aria-labelledby="pricesCount-label"> ${flash.pricesCount}</span>
+
+                    </li>
+                </g:if>
 			
 				<g:if test="${productInstance?.prices}">
 				<li class="fieldcontain">
