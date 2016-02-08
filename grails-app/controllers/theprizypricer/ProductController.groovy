@@ -38,10 +38,17 @@ class ProductController {
             return
         }
 
-        flash.averagePrice = productInstance.prices.amount.sum() / productInstance.prices.amount.sum()
-        def min = productInstance.prices.sort({a,b -> a.amount <=> b.amount}).toArray()[0]
-        flash.highestPrice = productInstance.prices.amount.max()
+
+        def amountSum = productInstance.prices.amount.sum()
+        def amountSize = productInstance.prices.amount.size()
+        flash.averagePrice = amountSum / amountSize
+        /* taking all the prices of this product, removing the 2 highest and 2 lowest, then doing an average with the rest and adding 20% to it.*/
+        def pricesSortedList = productInstance.prices.sort({ a, b -> a.amount <=> b.amount})
+        def amountToSubstract = pricesSortedList.get(0)?.amount + pricesSortedList.get(1)?.amount + pricesSortedList.get(amountSize-1)?.amount + pricesSortedList.get(amountSize-2)?.amount
         flash.lowestPrice = productInstance.prices.amount.min()
+        flash.highestPrice = productInstance.prices.amount.max()
+        flash.idealPrice = (amountSum - amountToSubstract) / (amountSize - 4)
+        flash.pricesCount = productInstance.prices.size();
 
         [productInstance: productInstance]
     }
