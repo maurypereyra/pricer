@@ -11,8 +11,12 @@ class BootStrap {
         def product01 = new Product(barCore: 1, description: "Honey").save()
         def product02 = new Product(barCore: 2, description: "Butter").save()
 
-        new Price(product: product01, store: store01, amount: 10, notes: "note1").save()
-        new Price(product: product01, store: store02,amount: 15, notes: "note1").save()
+        new Price(product: product01, store: store01, amount: 5, notes: "note1").save()
+        new Price(product: product01, store: store02,amount: 10, notes: "note1").save()
+        new Price(product: product01, store: store01, amount: 15, notes: "note1").save()
+        new Price(product: product01, store: store02,amount: 20, notes: "note1").save()
+        new Price(product: product01, store: store01, amount: 25, notes: "note1").save()
+        new Price(product: product01, store: store02,amount: 30, notes: "note1").save()
         new Price(product: product02, store: store01,amount: 5, notes: "note1").save()
         new Price(product: product02, store: store02,amount: 4, notes: "note1").save()
     }
