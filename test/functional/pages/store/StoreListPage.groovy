@@ -9,7 +9,7 @@ class StoreListPage extends Page{
     static url = "store/list"
 
     static at = {
-        title ==~ /Store List/
+        title ==~ /Store Lista/
     }
 
     static content = {
