@@ -11,8 +11,11 @@ class PriceControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        Product product= new Product(notes: "lorem ipsum",  barCode: 1, description:"iphone").save()
+        params["amount"] = 12.50
+        params["store"] = "cba"
+        params["notes"] = "Just a test note"
+        params["product"] = product
     }
 
     void testIndex() {

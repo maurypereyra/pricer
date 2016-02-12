@@ -2,7 +2,7 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'barCore', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'barCode', 'error')} ">
 	<label for="barCore">
 		<g:message code="product.barCore.label" default="Bar Core" />
 		

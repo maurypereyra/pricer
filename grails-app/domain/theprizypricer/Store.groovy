@@ -7,7 +7,7 @@ class Store {
     static hasMany = [prices:Price]
 
     static constraints = {
-
+        name(nullable: false)
     }
 
 }

@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list product">
 			
-				<g:if test="${productInstance?.barCore}">
+				<g:if test="${productInstance?.barCode}">
 				<li class="fieldcontain">
-					<span id="barCore-label" class="property-label"><g:message code="product.barCore.label" default="Bar Core" /></span>
+					<span id="barCode-label" class="property-label"><g:message code="product.barCore.label" default="Bar Code" /></span>
 					
-						<span class="property-value" aria-labelledby="barCore-label"><g:fieldValue bean="${productInstance}" field="barCore"/></span>
+						<span class="property-value" aria-labelledby="barCode-label"><g:fieldValue bean="${productInstance}" field="barCode"/></span>
 					
 				</li>
 				</g:if>
