@@ -1,7 +1,7 @@
 package theprizypricer
 
 class Product {
-    String barCore
+    String barCode
     String description
 
     static hasMany = [prices:Price]
@@ -10,7 +10,8 @@ class Product {
 
     static mapping = {
         version false
-        id column: 'barCore'
+        barCode (nullable: false, unique: true, blank:false)
+        description (nullable: false, blank:false)
     }
 
 }

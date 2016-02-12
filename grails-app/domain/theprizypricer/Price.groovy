@@ -2,8 +2,6 @@ package theprizypricer
 
 class Price {
     Date dateCreated
-    /*Store store
-    Product product*/
     BigDecimal amount
     String notes
 
@@ -15,5 +13,6 @@ class Price {
     static mapping = {
         version false
         autoTimestamp true
+        amount(nullable:false, scale:2)
     }
 }

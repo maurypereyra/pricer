@@ -1,12 +1,11 @@
 package theprizypricer
 
-import common.IdealPriceCalculator
-import common.idealPriceStrategy.SpecialAverageIdealPriceStrategy
 import org.springframework.dao.DataIntegrityViolationException
 
 class ProductController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    def PriceService priceService
 
     def index() {
         redirect(action: "list", params: params)
@@ -40,14 +39,12 @@ class ProductController {
             return
         }
 
-        def amountSet = productInstance.prices.amount
-        flash.averagePrice = amountSet.sum() / amountSet.size()
-        /* taking all the prices of this product, removing the 2 highest and 2 lowest, then doing an average with the rest and adding 20% to it.*/
-        flash.lowestPrice = amountSet.min()
-        flash.highestPrice = amountSet.max()
-        IdealPriceCalculator idealPriceCalculator = new IdealPriceCalculator(new SpecialAverageIdealPriceStrategy())
-        flash.idealPrice = idealPriceCalculator.calcIdealPrice(productInstance.prices)
-        flash.pricesCount = amountSet.size();
+        def pricesSet = productInstance.prices
+        flash.averagePrice = priceService.getAveragePrice(pricesSet)
+        flash.lowestPrice = priceService.getLowestPrice(pricesSet)
+        flash.highestPrice = priceService.getHighestPrice(pricesSet)
+        flash.idealPrice = priceService.getIdealPrice(pricesSet)
+        flash.pricesCount = priceService.getPricesCount(pricesSet);
 
         [productInstance: productInstance]
     }
