@@ -13,7 +13,12 @@ class ProductController {
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+        def productList = Product.createCriteria().list (params) {
+            if ( params.query ) {
+                eq("barCode", Long.valueOf(params.query))
+            }
+        }
+        [productInstanceList: productList, productInstanceTotal: Product.count()]
     }
 
     def create() {

@@ -1,11 +1,13 @@
 package theprizypricer
 
 class Product {
-    String barCode
+    long barCode
     String description
 
     static hasMany = [prices:Price]
     static constraints = {
+        barCode blank: false, nullable: false
+        description blank: false, nullable: false
     }
 
     static mapping = {

@@ -2,20 +2,20 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'barCode', 'error')} ">
-	<label for="barCore">
-		<g:message code="product.barCore.label" default="Bar Core" />
-		
+<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'barCode', 'error')} required">
+	<label for="barCode">
+		<g:message code="product.barCode.label" default="Bar Code" />
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="barCore" value="${productInstance?.barCore}"/>
+	<g:field type="number" name="barCode" required="" value="${fieldValue(bean: productInstance, field: 'barCode')}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'description', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'description', 'error')} required">
 	<label for="description">
 		<g:message code="product.description.label" default="Description" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="description" value="${productInstance?.description}"/>
+	<g:textField name="description" required="" value="${productInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'prices', 'error')} ">

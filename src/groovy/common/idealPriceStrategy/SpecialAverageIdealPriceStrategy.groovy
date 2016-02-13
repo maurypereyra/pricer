@@ -8,17 +8,24 @@ import theprizypricer.Price
 class SpecialAverageIdealPriceStrategy implements common.idealPriceStrategy.IIdealPriceStrategy {
     @Override
     BigDecimal doCalculation(Set<Price> prices) {
-        def pricesSortedList = prices.sort({ a, b -> a.amount <=> b.amount})
-        def amountSum = prices.amount.sum()
-        def amountSize = prices.amount.size()
-        def amountToSubtract = 0.0
-        def elementsToSubtract = 0
-        if(amountSize >= 5) {
-            amountToSubtract = pricesSortedList.get(0)?.amount + pricesSortedList.get(1)?.amount + pricesSortedList.get(amountSize-1)?.amount + pricesSortedList.get(amountSize-2)?.amount
-            elementsToSubtract = 4
-        }
-        /* taking all the prices of this product, removing the 2 highest and 2 lowest, then doing an average with the rest and adding 20% to it.*/
+        def price = null
 
-        return (((amountSum - amountToSubtract) / (amountSize - elementsToSubtract)) * 1.20)
+        if (prices?.amount.size() > 0) {
+            def pricesSortedList = prices.sort({ a, b -> a.amount <=> b.amount})
+            def amountSum = prices.amount.sum()
+            def amountSize = prices.amount.size()
+            def amountToSubtract = 0.0
+            def elementsToSubtract = 0
+            def multiplier = 1
+            if(amountSize >= 5) {
+                amountToSubtract = pricesSortedList.get(0)?.amount + pricesSortedList.get(1)?.amount + pricesSortedList.get(amountSize-1)?.amount + pricesSortedList.get(amountSize-2)?.amount
+                elementsToSubtract = 4
+                multiplier = 1.20
+            }
+
+            price = (((amountSum - amountToSubtract) / (amountSize - elementsToSubtract)) * multiplier)
+        }
+
+        return price
     }
 }

@@ -1,16 +1,35 @@
 package theprizypricer
 
+import grails.test.mixin.TestMixin
+import grails.test.mixin.support.GrailsUnitTestMixin
 
-import grails.test.mixin.*
-import org.junit.*
+import static org.junit.Assert.*
 
-/**
- * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
- */
-@TestFor(Product)
+@TestMixin(GrailsUnitTestMixin)
 class ProductTests {
+    def product
 
-    void testSomething() {
-        fail "Implement me"
+    void setUp() {
+        product = Product(barCode: 1, description: "Honey")
+        product.save()
     }
+
+    void testValidateNullableFields() {
+        mockForConstraintsTests(Product)
+        Product product = new Product()
+        assertFalse product.validate()
+        assertNull product.errors['barCode']
+        assertEquals 'nullable', product.errors['description']
+        assertNull product.errors["prices"]
+        assertEquals 1, product.errors.errorCount
+    }
+
+    void testValidateEmptyConstraints(){
+        mockForConstraintsTests(Product)
+        setUp()
+        product.description = ""
+        assertTrue product.validate()
+    }
+
+
 }

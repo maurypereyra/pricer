@@ -32,20 +32,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${priceInstance?.dateCreated}">
-				<li class="fieldcontain">
-					<span id="dateCreated-label" class="property-label"><g:message code="price.dateCreated.label" default="Date Created" /></span>
-					
-						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${priceInstance?.dateCreated}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${priceInstance?.notes}">
 				<li class="fieldcontain">
 					<span id="notes-label" class="property-label"><g:message code="price.notes.label" default="Notes" /></span>
 					
 						<span class="property-value" aria-labelledby="notes-label"><g:fieldValue bean="${priceInstance}" field="notes"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${priceInstance?.dateCreated}">
+				<li class="fieldcontain">
+					<span id="dateCreated-label" class="property-label"><g:message code="price.dateCreated.label" default="Date Created" /></span>
+					
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${priceInstance?.dateCreated}" /></span>
 					
 				</li>
 				</g:if>

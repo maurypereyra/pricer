@@ -7,7 +7,7 @@
 		<g:message code="price.amount.label" default="Amount" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="number" name="amount" required="" value="${fieldValue(bean: priceInstance, field: 'amount')}"/>
+	<g:field type="text" name="amount" required="" value="${fieldValue(bean: priceInstance, field: 'amount')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: priceInstance, field: 'notes', 'error')} ">

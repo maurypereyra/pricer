@@ -33,6 +33,7 @@ grails.project.dependency.resolution = {
     def seleniumVersion = "2.32.0"
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
+        runtime "postgresql:postgresql:8.3-607.jdbc4"
         test "org.gebish:geb-junit4:$gebVersion"
 
         test "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"

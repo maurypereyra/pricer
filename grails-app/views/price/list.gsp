@@ -26,9 +26,9 @@
 					
 						<g:sortableColumn property="amount" title="${message(code: 'price.amount.label', default: 'Amount')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'price.dateCreated.label', default: 'Date Created')}" />
-					
 						<g:sortableColumn property="notes" title="${message(code: 'price.notes.label', default: 'Notes')}" />
+					
+						<g:sortableColumn property="dateCreated" title="${message(code: 'price.dateCreated.label', default: 'Date Created')}" />
 					
 						<th><g:message code="price.product.label" default="Product" /></th>
 					
@@ -42,9 +42,9 @@
 					
 						<td><g:link action="show" id="${priceInstance.id}">${fieldValue(bean: priceInstance, field: "amount")}</g:link></td>
 					
-						<td><g:formatDate date="${priceInstance.dateCreated}" /></td>
-					
 						<td>${fieldValue(bean: priceInstance, field: "notes")}</td>
+					
+						<td><g:formatDate date="${priceInstance.dateCreated}" /></td>
 					
 						<td>${fieldValue(bean: priceInstance, field: "product")}</td>
 					

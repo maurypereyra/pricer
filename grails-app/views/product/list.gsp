@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="barCore" title="${message(code: 'product.barCode.label', default: 'Bar Core')}" />
+						<g:sortableColumn property="barCode" title="${message(code: 'product.barCode.label', default: 'Bar Code')}" />
 					
 						<g:sortableColumn property="description" title="${message(code: 'product.description.label', default: 'Description')}" />
 					
