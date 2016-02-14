@@ -4,7 +4,7 @@ class PriceService {
 
     def idealPriceStrategy
 
-    def getAveragePrice(Set<Price> prices) {
+    def getAveragePrice(List<Price> prices) {
         def price = null
 
         if(prices?.amount.size() > 0) {
@@ -15,7 +15,7 @@ class PriceService {
         return price
     }
 
-    def getLowestPrice(Set<Price> prices) {
+    def getLowestPrice(List<Price> prices) {
         def price = null
 
         if(prices?.amount.size() > 0) {
@@ -24,7 +24,7 @@ class PriceService {
         return price
     }
 
-    def getHighestPrice(Set<Price> prices) {
+    def getHighestPrice(List<Price> prices) {
         def price = null
 
         if(prices?.amount.size() > 0) {
@@ -34,7 +34,7 @@ class PriceService {
         return price
     }
 
-    def getIdealPrice(Set<Price> prices) {
+    def getIdealPrice(List<Price> prices) {
         def price = null
 
         if(prices?.amount.size() > 0) {
@@ -44,7 +44,7 @@ class PriceService {
         return price
     }
 
-    def getPricesCount(Set<Price> prices) {
+    def getPricesCount(List<Price> prices) {
         return prices != null ? prices.size() : null
     }
 }
