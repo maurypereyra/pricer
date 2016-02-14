@@ -7,11 +7,10 @@ import static org.junit.Assert.*
 
 @TestMixin(GrailsUnitTestMixin)
 class ProductTests {
-    def product
+    def Product product
 
     void setUp() {
-        product = Product(barCode: 1, description: "Honey")
-        product.save()
+        product = new Product(barCode: 1L, description: "Honey").save()
     }
 
     void testValidateNullableFields() {
@@ -28,7 +27,8 @@ class ProductTests {
         mockForConstraintsTests(Product)
         setUp()
         product.description = ""
-        assertTrue product.validate()
+        assertFalse product.validate()
+        assertEquals 'blank', product.errors['description']
     }
 
 
