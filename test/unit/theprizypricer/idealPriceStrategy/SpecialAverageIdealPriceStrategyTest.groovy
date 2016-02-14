@@ -1,4 +1,4 @@
-package common.idealPriceStrategy
+package theprizypricer.idealPriceStrategy
 
 import theprizypricer.Price
 import theprizypricer.Product
@@ -36,7 +36,7 @@ class SpecialAverageIdealPriceStrategyTest extends GroovyTestCase {
 
         def idealPrice = strategy.doCalculation(prices)
         assertNotNull idealPrice
-        assertEquals expectedPrice, idealPrice
+        assertEquals expectedPrice, idealPrice, 0
     }
 
     void testDoCalculationWhenPriceCountIsLessThanFour() {

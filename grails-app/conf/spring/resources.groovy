@@ -1,4 +1,4 @@
-import common.idealPriceStrategy.SpecialAverageIdealPriceStrategy
+import theprizypricer.idealPriceStrategy.SpecialAverageIdealPriceStrategy
 import theprizypricer.PriceService
 
 // Place your Spring DSL code here

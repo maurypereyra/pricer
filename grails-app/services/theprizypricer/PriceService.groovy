@@ -37,8 +37,8 @@ class PriceService {
     def getIdealPrice(List<Price> prices) {
         def price = null
 
-        if(prices?.amount.size() > 0) {
-            price = idealPriceStrategy.doCalculation(prices).setScale(2, BigDecimal.ROUND_HALF_UP)
+        if(prices?.amount?.size() > 0) {
+            price = idealPriceStrategy.doCalculation(prices)
         }
 
         return price

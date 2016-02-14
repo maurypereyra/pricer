@@ -1,11 +1,11 @@
-package common.idealPriceStrategy
+package theprizypricer.idealPriceStrategy
 
 import theprizypricer.Price
 
 /**
  * Created by Mauricio Pereyra on 08/02/2016.
  */
-class SpecialAverageIdealPriceStrategy implements common.idealPriceStrategy.IIdealPriceStrategy {
+class SpecialAverageIdealPriceStrategy implements IIdealPriceStrategy {
     @Override
     BigDecimal doCalculation(List<Price> prices) {
         def price = null
@@ -20,7 +20,7 @@ class SpecialAverageIdealPriceStrategy implements common.idealPriceStrategy.IIde
                 multiplier = 1.20
             }
 
-            price = new BigDecimal((prices.amount.sum()/ prices.amount.size()) * multiplier)
+            price = ((prices.amount.sum()/ prices.amount.size()) * multiplier)
         }
 
         return price

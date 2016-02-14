@@ -1,4 +1,4 @@
-package common.idealPriceStrategy
+package theprizypricer.idealPriceStrategy
 
 import theprizypricer.Price
 
