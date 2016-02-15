@@ -2,6 +2,7 @@ package theprizypricer
 
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
+import org.junit.Before
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -11,6 +12,7 @@ class PriceTests {
 
     Price price
 
+    @Before
     void setUp() {
         price = new Price(product: new Product(), store: new Store(), amount: 5, notes: "note1").save()
         price.save(flush: true)
@@ -31,7 +33,6 @@ class PriceTests {
 
     void testValidateRangeConstraints() {
         mockForConstraintsTests(Price)
-        setUp()
         price.amount = 0
         assertFalse price.validate()
         assertEquals 'min', price.errors['amount']
@@ -39,7 +40,6 @@ class PriceTests {
 
     void testValidateEmptyConstraints(){
         mockForConstraintsTests(Price)
-        setUp()
         price.notes = ""
         assertTrue price.validate()
     }

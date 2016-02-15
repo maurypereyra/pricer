@@ -1,8 +1,9 @@
 package theprizypricer
 
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
 import org.junit.Before
 import theprizypricer.idealPriceStrategy.SpecialAverageIdealPriceStrategy
-import grails.test.mixin.*
 
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions

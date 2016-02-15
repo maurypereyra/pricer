@@ -1,5 +1,8 @@
 package theprizypricer.idealPriceStrategy
 
+import grails.test.mixin.TestMixin
+import grails.test.mixin.support.GrailsUnitTestMixin
+import org.junit.Before
 import theprizypricer.Price
 import theprizypricer.Product
 import theprizypricer.Store
@@ -8,7 +11,8 @@ import theprizypricer.Store
 /**
  * Created by Mauricio Pereyra on 14/02/2016.
  */
-class SpecialAverageIdealPriceStrategyTest extends GroovyTestCase {
+@TestMixin(GrailsUnitTestMixin)
+class SpecialAverageIdealPriceStrategyTest {
 
     def BigDecimal expectedPrice
     def List <Price> prices
@@ -16,8 +20,8 @@ class SpecialAverageIdealPriceStrategyTest extends GroovyTestCase {
     def store01 = new Store(name: "Walmart", address: "USA")
     def SpecialAverageIdealPriceStrategy strategy
 
+    @Before
     void setUp() {
-        super.setUp()
         expectedPrice = new BigDecimal(10)
         prices = new ArrayList<Price>()
 
@@ -44,7 +48,7 @@ class SpecialAverageIdealPriceStrategyTest extends GroovyTestCase {
 
         def idealPrice = strategy.doCalculation(prices)
         assertNotNull idealPrice
-        assertEquals expectedPrice, idealPrice
+        assertEquals expectedPrice, idealPrice, 0
     }
 
     void testDoCalculationWhenPriceCountIsFour() {
@@ -54,7 +58,7 @@ class SpecialAverageIdealPriceStrategyTest extends GroovyTestCase {
 
         def idealPrice = strategy.doCalculation(prices)
         assertNotNull idealPrice
-        assertEquals expectedPrice, idealPrice
+        assertEquals expectedPrice, idealPrice, 0
     }
 
     void testDoCalculationWhenPriceCountIsZero() {
