@@ -7,7 +7,7 @@ class PriceService {
     def getAveragePrice(List<Price> prices) {
         def price = null
 
-        if(prices?.amount.size() > 0) {
+        if(prices?.amount?.size() > 0) {
             def amountSet = prices?.amount
             price = (amountSet.sum() / amountSet.size()).setScale(2, BigDecimal.ROUND_HALF_UP)
         }
@@ -18,7 +18,7 @@ class PriceService {
     def getLowestPrice(List<Price> prices) {
         def price = null
 
-        if(prices?.amount.size() > 0) {
+        if(prices?.amount?.size() > 0) {
             price = prices?.amount.min().setScale(2, BigDecimal.ROUND_HALF_UP)
         }
         return price
@@ -27,7 +27,7 @@ class PriceService {
     def getHighestPrice(List<Price> prices) {
         def price = null
 
-        if(prices?.amount.size() > 0) {
+        if(prices?.amount?.size() > 0) {
             price = prices.amount.max().setScale(2, BigDecimal.ROUND_HALF_UP)
         }
 
@@ -45,6 +45,6 @@ class PriceService {
     }
 
     def getPricesCount(List<Price> prices) {
-        return prices != null ? prices.size() : null
+        return prices?.size()
     }
 }
