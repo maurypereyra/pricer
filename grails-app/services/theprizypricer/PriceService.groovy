@@ -38,7 +38,7 @@ class PriceService {
         def price = null
 
         if(prices?.amount?.size() > 0) {
-            price = idealPriceStrategy.doCalculation(prices)
+            price = idealPriceStrategy.doCalculation(new ArrayList<Price>(prices))
         }
 
         return price

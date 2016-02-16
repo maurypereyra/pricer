@@ -1,18 +1,31 @@
 package theprizypricer
 
-
-import org.junit.*
-import grails.test.mixin.*
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
+import theprizypricer.idealPriceStrategy.SpecialAverageIdealPriceStrategy
 
 @TestFor(ProductController)
-@Mock(Product)
+@Mock([Product])
 class ProductControllerTests {
 
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+
+        Store store = new Store(name: "Walmart", address: "USA")
+        Product product = new Product(barCode: 1, description: "Honey")
+        .addToPrices(store: store, amount: 5, notes: "note1")
+        .addToPrices(store: store, amount: 10, notes: "note1")
+        .addToPrices(store: store, amount: 10, notes: "note1")
+        .addToPrices(store: store, amount: 10, notes: "note1")
+        .addToPrices(store: store, amount: 10, notes: "note1")
+        .addToPrices(store: store, amount: 30, notes: "note1")
+
+
+        params["barCode"] = 1
+        params["description"] = "Testing description"
+        params["notes"] = "A testing note"
+        params["prices"] = product.getPrices()
     }
 
     void testIndex() {
@@ -51,6 +64,8 @@ class ProductControllerTests {
     }
 
     void testShow() {
+        controller.priceService = new PriceService()
+        controller.priceService.idealPriceStrategy = new SpecialAverageIdealPriceStrategy();
         controller.show()
 
         assert flash.message != null
@@ -65,6 +80,13 @@ class ProductControllerTests {
         params.id = product.id
 
         def model = controller.show()
+
+        assertEquals 12.50, flash.averagePrice, 0
+        assertEquals 5, flash.lowestPrice, 0
+        assertEquals 30, flash.highestPrice, 0
+        assertEquals 12, flash.idealPrice, 0
+        assertEquals 6, flash.pricesCount, 0
+
 
         assert model.productInstance == product
     }
@@ -102,9 +124,8 @@ class ProductControllerTests {
 
         assert product.save() != null
 
-        // test invalid parameters in update
         params.id = product.id
-        //TODO: add invalid values to params object
+        params.barCode = "BarCode"
 
         controller.update()
 
@@ -117,20 +138,6 @@ class ProductControllerTests {
         controller.update()
 
         assert response.redirectedUrl == "/product/show/$product.id"
-        assert flash.message != null
-
-        //test outdated version number
-        response.reset()
-        product.clearErrors()
-
-        populateValidParams(params)
-        params.id = product.id
-        params.version = -1
-        controller.update()
-
-        assert view == "/product/edit"
-        assert model.productInstance != null
-        assert model.productInstance.errors.getFieldError('version')
         assert flash.message != null
     }
 

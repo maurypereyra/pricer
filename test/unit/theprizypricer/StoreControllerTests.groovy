@@ -1,8 +1,7 @@
 package theprizypricer
 
-
-import org.junit.*
-import grails.test.mixin.*
+import grails.test.mixin.Mock
+import grails.test.mixin.TestFor
 
 @TestFor(StoreController)
 @Mock(Store)
@@ -11,8 +10,9 @@ class StoreControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+
+        params["name"] = "Walmart"
+        params["address"] = "USA"
     }
 
     void testIndex() {
@@ -102,9 +102,8 @@ class StoreControllerTests {
 
         assert store.save() != null
 
-        // test invalid parameters in update
         params.id = store.id
-        //TODO: add invalid values to params object
+        params.name = new Store()
 
         controller.update()
 
@@ -117,20 +116,6 @@ class StoreControllerTests {
         controller.update()
 
         assert response.redirectedUrl == "/store/show/$store.id"
-        assert flash.message != null
-
-        //test outdated version number
-        response.reset()
-        store.clearErrors()
-
-        populateValidParams(params)
-        params.id = store.id
-        params.version = -1
-        controller.update()
-
-        assert view == "/store/edit"
-        assert model.storeInstance != null
-        assert model.storeInstance.errors.getFieldError('version')
         assert flash.message != null
     }
 
