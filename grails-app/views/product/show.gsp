@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title>Show Product</title>
 	</head>
 	<body>
 		<a href="#show-product" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -17,7 +17,7 @@
 			</ul>
 		</div>
 		<div id="show-product" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1>Show Product</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -91,7 +91,7 @@
 					<span id="prices-label" class="property-label"><g:message code="product.prices.label" default="Prices" /></span>
 					
 						<g:each in="${productInstance.prices}" var="p">
-						<span class="property-value" aria-labelledby="prices-label"><g:link controller="price" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="prices-label"><g:link controller="price" action="show" id="${p.id}">${p.amount?.encodeAsHTML()} - ${p.store.name?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

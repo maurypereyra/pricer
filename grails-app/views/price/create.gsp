@@ -4,7 +4,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'price.label', default: 'Price')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title>Create Price</title>
 	</head>
 	<body>
 		<a href="#create-price" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -15,7 +15,7 @@
 			</ul>
 		</div>
 		<div id="create-price" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1>Create Price</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

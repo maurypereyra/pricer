@@ -1,4 +1,4 @@
-package pages.store
+package pages.price
 
 import geb.Page
 
@@ -9,7 +9,7 @@ class PriceListPage extends Page {
     static url = "price/list"
 
     static at = {
-        title ==~ /Price Lista/
+        title ==~ /Price List/
     }
 
     static content = {

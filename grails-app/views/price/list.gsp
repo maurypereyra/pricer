@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'price.label', default: 'Price')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		<title>Price List</title>
 	</head>
 	<body>
 		<a href="#list-price" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -16,7 +16,7 @@
 			</ul>
 		</div>
 		<div id="list-price" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>Price List</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -46,9 +46,9 @@
 					
 						<td><g:formatDate date="${priceInstance.dateCreated}" /></td>
 					
-						<td>${fieldValue(bean: priceInstance, field: "product")}</td>
+						<td>${fieldValue(bean: priceInstance, field: "product.description")}</td>
 					
-						<td>${fieldValue(bean: priceInstance, field: "store")}</td>
+						<td>${fieldValue(bean: priceInstance, field: "store.name")}</td>
 					
 					</tr>
 				</g:each>

@@ -26,7 +26,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${productInstance?.prices?}" var="p">
-    <li><g:link controller="price" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="price" action="show" id="${p.id}">${p.amount?.encodeAsHTML()} - ${p.store.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="price" action="create" params="['product.id': productInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'price.label', default: 'Price')])}</g:link>

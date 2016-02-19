@@ -7,4 +7,4 @@ Feature: new price entry
   Scenario: new price
     Given I open create price
     When I add a price with amount "20", with the note "Too cheep" for "Honey" on "Walmart"
-    Then I see the new price for "Honey" on "Walmart"
+    Then I see the new with amount "20", with the note "Too cheep" for "Honey" on "Walmart"

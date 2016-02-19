@@ -1,4 +1,4 @@
-package pages.store
+package pages.price
 
 class PriceData {
     static def stores = [

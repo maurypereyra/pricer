@@ -23,7 +23,7 @@
 		<g:message code="price.product.label" default="Product" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="product" name="product.id" from="${theprizypricer.Product.list()}" optionKey="id" required="" value="${priceInstance?.product?.id}" class="many-to-one"/>
+	<g:select id="product" name="product.id" from="${theprizypricer.Product.list()}" optionKey="id" required="" value="${priceInstance?.product?.description}" class="many-to-one" optionValue="description"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: priceInstance, field: 'store', 'error')} required">
@@ -31,6 +31,6 @@
 		<g:message code="price.store.label" default="Store" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="store" name="store.id" from="${theprizypricer.Store.list()}" optionKey="id" required="" value="${priceInstance?.store?.id}" class="many-to-one"/>
+	<g:select id="store" name="store.id" from="${theprizypricer.Store.list()}" optionKey="id" required="" value="${priceInstance?.store?.name}" class="many-to-one" optionValue="name"/>
 </div>
 

@@ -5,7 +5,7 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'price.label', default: 'Price')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		<title>Show Price</title>
 	</head>
 	<body>
 		<a href="#show-price" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -17,7 +17,7 @@
 			</ul>
 		</div>
 		<div id="show-price" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
+			<h1>Show Price</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="amount-label" class="property-label"><g:message code="price.amount.label" default="Amount" /></span>
 					
-						<span class="property-value" aria-labelledby="amount-label"><g:fieldValue bean="${priceInstance}" field="amount"/></span>
+						<span id="amount-value" class="property-value" aria-labelledby="amount-label"><g:fieldValue bean="${priceInstance}" field="amount"/></span>
 					
 				</li>
 				</g:if>
@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="notes-label" class="property-label"><g:message code="price.notes.label" default="Notes" /></span>
 					
-						<span class="property-value" aria-labelledby="notes-label"><g:fieldValue bean="${priceInstance}" field="notes"/></span>
+						<span id="notes-value" class="property-value" aria-labelledby="notes-label"><g:fieldValue bean="${priceInstance}" field="notes"/></span>
 					
 				</li>
 				</g:if>
@@ -54,7 +54,7 @@
 				<li class="fieldcontain">
 					<span id="product-label" class="property-label"><g:message code="price.product.label" default="Product" /></span>
 
-						<span class="property-value" aria-labelledby="product-label"><g:link controller="product" action="show" id="${priceInstance?.product?.id}">${priceInstance?.product?.encodeAsHTML()}</g:link></span>
+						<span id="product-value" class="property-value" aria-labelledby="product-label"><g:link controller="product" action="show" id="${priceInstance?.product?.id}">${priceInstance?.product.description?.encodeAsHTML()}</g:link></span>
 
 				</li>
 				</g:if>
@@ -63,7 +63,7 @@
 				<li class="fieldcontain">
 					<span id="store-label" class="property-label"><g:message code="price.store.label" default="Store" /></span>
 					
-						<span class="property-value" aria-labelledby="store-label"><g:link controller="store" action="show" id="${priceInstance?.store?.id}">${priceInstance?.store?.encodeAsHTML()}</g:link></span>
+						<span id="store-value" class="property-value" aria-labelledby="store-label"><g:link controller="store" action="show" id="${priceInstance?.store?.id}">${priceInstance?.store.name?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
