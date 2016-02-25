@@ -17,13 +17,13 @@
 	</label>
 	<g:textField name="description" required="" value="${productInstance?.description}"/>
 </div>
-
+<g:if test="${productInstance?.prices}">
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'prices', 'error')} ">
 	<label for="prices">
 		<g:message code="product.prices.label" default="Prices" />
 		
 	</label>
-	
+
 <ul class="one-to-many">
 <g:each in="${productInstance?.prices?}" var="p">
     <li><g:link controller="price" action="show" id="${p.id}">${p.amount?.encodeAsHTML()} - ${p.store.name?.encodeAsHTML()}</g:link></li>
@@ -34,4 +34,5 @@
 </ul>
 
 </div>
+</g:if>
 
