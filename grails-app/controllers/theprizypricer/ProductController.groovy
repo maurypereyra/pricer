@@ -45,11 +45,13 @@ class ProductController {
         }
 
         def prices = new ArrayList(productInstance.prices)
-        flash.averagePrice = priceService.getAveragePrice(prices)
-        flash.lowestPrice = priceService.getLowestPrice(prices)
-        flash.highestPrice = priceService.getHighestPrice(prices)
-        flash.idealPrice = priceService.getIdealPrice(prices).setScale(2)
-        flash.pricesCount = priceService.getPricesCount(prices);
+        if(prices.size() > 0) {
+            flash.averagePrice = priceService.getAveragePrice(prices)
+            flash.lowestPrice = priceService.getLowestPrice(prices)
+            flash.highestPrice = priceService.getHighestPrice(prices)
+            flash.idealPrice = priceService.getIdealPrice(prices).setScale(2)
+            flash.pricesCount = priceService.getPricesCount(prices);
+        }
 
         [productInstance: productInstance]
     }
