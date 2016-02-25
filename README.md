@@ -4,10 +4,19 @@
 
 GENERAL USAGE NOTES
 -------------------
-To install this application you will need
-- Grails 2.0.3 (https://grails.org/download.html)
-- PostgreSQL 9.5.0 (http://www.postgresql.org/download/)
-Also you need to have properly installed a java SDK (1.6 or 1.7)
+* To install this application you will need
+	- Grails 2.0.3 (https://grails.org/download.html)
+	- PostgreSQL 9.5.0 (http://www.postgresql.org/download/)
+
+* Also you need to have properly installed a java SDK (1.6 or 1.7)
+* In order to execute the commands contained into this document you have to
+set the JAVA_HOME, GRAILS_HOME and the bin folders of java sdk, postgre sql 
+and grails you install.
+
+Note: if you have any issues with the dependecies you could delete the ivy-cache
+folder content on the folowing path:
+Windows: C:\Users\[Username]\.grails\ivy-cache
+Linux: ~\.grails\ivy-cache
 
 INSTALL THE APPLICATION
 -----------------------
